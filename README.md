@@ -100,9 +100,31 @@ This is my personal learning repository which for my progress in Java programmin
 						* center：居中
 						* left：左对齐
 						* right：右对齐
+			* <b>：字体加粗
+			* <i>：斜体
+			* <font>：字体标签(淘汰)
+				* 属性：
+					* color：颜色
+					* size：大小
+					* face：字体
+				*属性定义：
+					* color：
+						1. 英文单词
+						2. #值1值2值3
+					* width：
+						1. width = "20",单位是像素px
+						2. %100，占总长的%比
 			
 		3. 图片标签
-		4. 列表标签
-		5. 链接标签
+			* img： 展示图片，自闭和标签
+				<img src="statics/1.moon.jpg" aria-atomic="true" alt="打不开此图片"/>
+		4. 列表标签：不建议使用，使用css样式
+		5. 链接标签：
+			* a：定义一个超链接
+				* 属性：
+					* href：指定访问资源的URL
+					* target：指定打开资源的方式
+						* _self：默认值，在本页面打开
+						* _blank：在一个新的页面打开
 		6. 表格标签：
 
