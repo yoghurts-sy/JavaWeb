@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>扩展选择器</title>
+
+    <style>
+        /*1.子类选择器*/
+        div p {
+            color: aqua;
+        }
+
+        /*父类选择器*/
+        div > p {
+            border: 1px solid;
+             }
+
+        /*属性选择器*/
+        input[type="text"] {
+            border: 5px solid;
+        }
+
+        /*伪类选择器*/
+        a:link {
+            color:cyan;
+        }
+        a:hover {
+            color: black;
+        }
+        a:active {
+            color: red;
+        }
+        a:visited {
+            color: gray;
+        }
+
+    </style>
+</head>
+<body>
+   <!-- 1.子类选择器-->
+    <!--<div>
+        <p>
+            子类选择器
+        </p>
+    </div>
+    <p>
+        子类选择器
+    </p>-->
+
+    <!--2.父类选择器-->
+   <div>
+       <p>
+           父类选择器
+       </p>
+   </div>
+   <div>
+      父类选择器
+   </div>
+
+    <!--3.属性选择器-->
+    <input type="text">
+    <input type="password">
+
+    <!--伪类选择器-->
+    <a href="#">yoghurts</a>
+
+</body>
+</html>
