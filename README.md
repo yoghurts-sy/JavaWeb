@@ -81,9 +81,9 @@ This is my personal learning repository which for my progress in Java programmin
 	3. 标签学习：
 		1. 文件标签：构成html最基本的标签
 			* html：html文档的根标签
-			* head：头标签，用于指定html文档的一些属性
-			* title：标题标签
-			* body：体标签
+			* <head>：头标签，用于指定html文档的一些属性
+			* <title>：标题标签
+			* <body>：体标签
 			* <!DOCTYPE html>:html中定义该文档是html文档
 		2. 文本标签：和文本有关的标签
 			* 注释：<!-- 注释内容 -->
@@ -116,11 +116,11 @@ This is my personal learning repository which for my progress in Java programmin
 						2. %100，占总长的%比
 			
 		3. 图片标签
-			* img： 展示图片，自闭和标签
+			* <img>： 展示图片，自闭和标签
 				<img src="statics/1.moon.jpg" aria-atomic="true" alt="打不开此图片"/>
 		4. 列表标签：不建议使用，使用css样式
 		5. 链接标签：
-			* a：定义一个超链接
+			* <a>：定义一个超链接
 				* 属性：
 					* href：指定访问资源的URL
 					* target：指定打开资源的方式
@@ -226,3 +226,64 @@ This is my personal learning repository which for my progress in Java programmin
 		4. 尺寸：
 			* width：宽度
 			* height：高度
+		5. 盒子模型：
+			* margin：外边距
+			* padding：内边距
+				* 默认情况下内边距会影响整个盒子的大小：
+					* 故使用box-sizing:border-box设置盒子的属性，保持width和height不变
+			* float：浮动
+				* left
+				* right
+		
+
+## JavaScript
+	* 概念：一门客户端脚本语言
+		* 运行在客户端浏览器中，每一个浏览器都有JavaScript解析引擎
+		* 脚本语言：不需要编译，直接就可以被浏览器解析
+	
+	* 功能：
+		* 可以增强用户与html之间的交互过程，可以用来控制html元素，让页面有一些动态的效果，增强用户的体验
+		
+	* JavaScript发展史
+		* JavaScript = ECMAScript + JavaScript(BOM + DOM)	
+	
+	* ECMAScript：客户端脚本语言的标准
+		1. 基本语法：
+			1. 与html集合的方式：
+				1. 内部Js：
+					* 定义<script>，标签体内容就是js代码
+				2. 外部js：
+					* 定义<script>，通过src属性引入外部js文件。
+				
+
+				* 注意：
+					1. <script>可以定义在html页面的让任何地方，但是定义的位置会影响执行顺序
+					2. <script>可以定义多个
+			2. 注释
+			3. 数据类型：
+				1. 原始数据类型(基本数据类型)：
+					1. number：数字，整数、小数、NaN
+					2. string：字符串，无字符的概念，"ABC", "A", 'abc'
+					3. boolean：true或false
+					4. null：一个对象为空的占位符
+					5. underfined：未被初始化的变量，默认赋值underfined
+				2. 引用数据类型：对象
+			4. 变量
+				* 变量：一小块存储数据的内存空间
+				* Java语言是强类型语言，而JavaScript是弱类型语言
+					* 强类型：在开辟变量存储空间时，定义空间将采取存储的数据类型，且只能存储该类型。
+					* 弱类型：在开辟变量存储空间时，不定义空间将采取存储的数据类型，可以存储任意类型。	
+					
+				* 语法：
+					* var 变量名 = 初始化值
+					
+				* typeof运算符：
+					* 注：typeof(null)运算后得到的是object	
+			5. 运算符
+				1. 一元运算符
+				2. 算数运算符
+				3. 赋值运算符
+				4. 比较运算符
+				5. 逻辑运算符
+				6. 三元运算符
+			6. 流程控制语句
