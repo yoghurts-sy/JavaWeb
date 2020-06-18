@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" value="打开窗口" id="openbtn">
+    <input type="button" value="关闭窗口" id="closebtn">
+
+
+    <script>
+       /* 1.alert*/
+        /*window.alert("nihao !");*/
+
+       /* 2.confirm*/
+
+       /*let b = confirm("Are sure to leave?");
+       alert(b);*/
+
+        /*3.prompt*/
+        /*let s = prompt("Please enter something:");
+        alert(s);*/
+
+
+        /*4.open*/
+        let openbtn = document.getElementById("openbtn");
+        let newwindow;
+        openbtn.onclick = function () {
+           newwindow = open("https://www.bilibili.com");
+        }
+
+        /*5.close*/
+       let closebtn = document.getElementById("closebtn");
+       closebtn.onclick = function () {
+           newwindow.close();
+       }
+
+       /*6.定时器*/
+        let timeout = setTimeout(fun, 2000);//一次性定时器
+        function fun() {
+            alert("boom")
+        }
+        clearTimeout(timeout);
+
+        let interval = setInterval(fun, 2000);//循环定时器
+        clearInterval(interval);
+
+
+    </script>
+
+</body>
+</html>

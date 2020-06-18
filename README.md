@@ -287,3 +287,74 @@ This is my personal learning repository which for my progress in Java programmin
 				5. 逻辑运算符
 				6. 三元运算符
 			6. 流程控制语句
+
+
+## DOM简单学习
+	* 功能：控制html文档的内容
+	* 代码：获取页面标签对象Element
+		* document.getElementById("id值")：通过标签的id获取标签的对象
+	
+	* 操作Element对象：
+		1. 修改对象的属性值：
+			1. 明确获取的对象是哪一个？
+			2. 查看API文档，找其中有哪些属性可以设置
+		2. 修改标签体内容：
+			* 属性：innerHTML = "新内容"
+
+
+## 事件简单学习
+	* 功能：某些组件被执行了某些操作之后，触发某些代码的执行
+	* 如何绑定事件：
+		1. 通过js代码获取元素对象，指定事件属性，设置一个函数。
+
+
+## BOM：浏览器对象模型
+	1. 概念：Browser Object Model 浏览器对象模型
+		* 将浏览器的各个组成部分封装成对象
+
+	2. 组成：
+		* Window：窗口对象
+		* Navigator：浏览器对象
+		* Screen：显示器屏幕对象
+		* History：历史记录对象
+			* 方法：
+				1. back()		加载history列表中的前一个URL
+				2. forward()	加载history列表中的下一个URL
+				3. go()			加载history列表中的某个具体页面
+			* 属性：
+				1. length       返回当前窗口历史列表中的URL数量
+		* Location：地址栏对象
+
+
+## DOM：文档对象模型
+	* 概念：Document Object Model 文档对象模型
+		* 将标记语言文档的各个组成部分，封装成对象。可以使用这些对象，对标记语言文档进行CRUD的动态操作
+	
+	* W3C DOM 标准被分为3个不同的部分:
+		* 核心 DOM 针对任何结构化文档的标准模型
+			* Document：文档对象
+			* Element：元素对象
+			* Attribute：属性对象
+			* Text：文本对象
+			* Comment：注释对象
+
+			* Node：节点对象，上述5个对象的父对象
+		* XML DOM 针对XML文档的标注的模型
+		* HTML DOM 针对HTML文档的标准模型
+
+	* 核心DOM模型：
+		* Document：文档对象
+			* 方法：
+				1. getElementById：根据Id属性值获取元素对象
+				2. getElementByTagName：根据元素名称获取元素对象们，返回值为数组
+				3. getElementByClassName：根据Class属性值获取元素对象们，返回值为数组
+				4. getElementByName：根据name属性值获取元素对象们，返回值为数组
+		* Element：元素对象
+		* Node：节点对象，上述5个对象的父对象
+			* 特点：所有DOM对象都可以被认为是一个节点
+			* 方法：
+				* CRUD DOM树：
+					* appendChild()：向节点的字节点列表的结尾添加新的子节点
+					* removeChild()：删除(并返回)当前节点的指定子节点
+					* replaceChild()：用新节点替换一个子节点。
+	* HTML DOM模型：
