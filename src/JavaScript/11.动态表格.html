@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To do List</title>
+    <style>
+        div {
+            margin-top: 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        #add_btn {
+            height: 25px;
+            width: 60px;
+            border: 1px black;
+            color: white;
+            background: black;
+            border-radius: 5px;
+        }
+        #task {
+            height: 25px;
+        }
+
+        table {
+            border: 1px solid;
+            margin: auto;
+            width: 500px;
+        }
+
+
+        caption {
+            margin-bottom: 20px;
+        }
+
+        tr {
+            border: 1px solid black;
+            margin-bottom: 100px;
+            width: 80%;
+
+        }
+
+        td {
+            text-align: left;
+            width: 440px;
+            background: deepskyblue;
+        }
+        td:nth-child(2) {
+            width: 20px;
+            background: white;
+        }
+
+        td:nth-child(3) {
+            width: 40px;
+            background: white;
+        }
+
+        td:nth-child(2) > a{
+            border: 2px solid pink;
+            border-radius: 5px;
+            color: white;
+            background: pink;
+        }
+
+        td:nth-child(3) > a {
+            border: 2px solid green;
+            border-radius: 5px;
+            color: white;
+            background: green;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        #table_finished {
+            margin-top: 50px;
+            width: 500px;
+        }
+        #table_finished tr {
+            border: 1px solid black;
+            margin-bottom: 100px;
+            width: 80%;
+        }
+        #table_finished tr td {
+            text-align: left;
+            width: 500px;
+            background: deepskyblue;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text" id="task" placeholder="place enter new task...">
+        <input type="button" id="add_btn" value="PUSH" onclick="add()">
+    </div>
+
+    <table id="table_ToDo">
+        <caption>To Do</caption>
+    </table>
+
+    <table id="table_finished">
+        <caption>FINISHED</caption>
+    </table>
+
+    <script>
+        function add() {
+            let task = document.getElementById("task").value;
+            let table = document.getElementsByTagName("table")[0];
+
+            if (task !== "") {
+                table.innerHTML += ("<tr>" +
+                    "<td>"+ task +"</td>"  +
+                    "<td><a href=\"javascript:void(0);\" onclick=\"del(this)\">DELETE</a></td>"       +
+                    "<td><a href=\"javascript:void(0);\" onclick=\"finished(this)\">FINISHED</a></td>"    +
+                    "</tr>");
+            }
+        }
+
+        function del(obj) {
+            let table = obj.parentNode.parentNode.parentNode;
+            let tr = obj.parentNode.parentNode;
+            table.removeChild(tr);
+        }
+
+        function finished(obj) {
+            let tr = obj.parentNode.parentNode;
+            let task = tr.firstChild.innerHTML;
+
+            let table = document.getElementById("table_finished");
+
+            table.innerHTML += (
+                "<tr>" + "<td>" + task + "</td>" + "</tr>"
+            );
+
+            let table_ToDo = obj.parentNode.parentNode.parentNode;
+            let old_tr = obj.parentNode.parentNode;
+            table_ToDo.removeChild(old_tr);
+        }
+
+    </script>
+
+</body>
+</html>

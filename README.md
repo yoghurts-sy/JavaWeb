@@ -118,7 +118,13 @@ This is my personal learning repository which for my progress in Java programmin
 		3. 图片标签
 			* <img>： 展示图片，自闭和标签
 				<img src="statics/1.moon.jpg" aria-atomic="true" alt="打不开此图片"/>
-		4. 列表标签：不建议使用，使用css样式
+		4. 列表标签：
+			* 有序列表<ol type="">
+				* <li>：一行标签
+				* type：可以通过type修改序号类型
+			* 无序列表<ul>
+				* <li>：一行标签
+				* type：可以通过type修改点点的类型
 		5. 链接标签：
 			* <a>：定义一个超链接
 				* 属性：
@@ -358,3 +364,41 @@ This is my personal learning repository which for my progress in Java programmin
 					* removeChild()：删除(并返回)当前节点的指定子节点
 					* replaceChild()：用新节点替换一个子节点。
 	* HTML DOM模型：
+		1. 标签体的设置和内容获取：innerHTML
+		2. 使用html元素对象的属性
+		3. 控制元素样式
+			1. 使用元素的style属性来设置
+			2. 提前定义好类选择器的样式，通过元素的className属性来设置其class属性值。
+
+	* 常见的事件：
+		1. 点击事件：
+			1. onclick：单击事件
+			2. ondblclick：双击事件
+		2. 焦点事件：
+			1. onblur：失去焦点
+				* 表单校验
+			2. onfocus：获得焦点
+		3. 加载事件：
+			1. onload：一张页面或一幅图像完成加载
+				* 用于等页面加载完成，再执行代码 window.onload = function(){...}
+		4. 鼠标事件：
+			1. onmousedown：按下鼠标
+				* 定义方法时，定义一个形参，接收event对象，利用event对象的button属性值可以判断鼠标是哪个键被按下，0、1、2左中右
+			2. onmouseup：松开鼠标
+			3. onmousemove：移动鼠标
+			4. onmouseover：鼠标移动到某元素上
+			5. onmouseout：鼠标从元素上移开
+		5. 键盘事件：
+			1. onkeydown：某个键被按下
+				* 同鼠标
+			2. onkeyup：某个键被松开
+			3. onkeypress：某个键被按下并松开
+		6. 选择和改变：
+			1. onchange：域的内容被改变
+			2. onselect：文本被选中
+		7. 表单事件：
+			1. onsubmit：确认按钮被点击
+				* 可以阻止表单的提交，函数返回false  
+					1. onsubmit = function(){  ... return false}
+					2. <form onclick="return checkform();">
+			2. onreset：重置按钮被点击
