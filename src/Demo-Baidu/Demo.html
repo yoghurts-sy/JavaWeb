@@ -1,10 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="UTF-8">
     <title>Title</title>
-</head>
-<body>
+    <style>
+        /**
+         * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+         * http://cssreset.com
+         */
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+        body {
+            line-height: 1;
+        }
+        ol, ul {
+            list-style: none;
+        }
+        blockquote, q {
+            quotes: none;
+        }
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
 
-</body>
+        /*这是一条华丽的分割线*/
+        .top-info {
+            border: red 1px solid;
+            height: 50px;
+
+            position: fixed;
+            /*z-index: 99;*/
+            left: 10px;
+            right: 10px;
+            margin-bottom: 10px;
+
+            padding-top: 5px;
+        }
+        .info-left {
+            float: left;
+            text-align: right;
+            padding-top: 5px;
+            padding-right: 23px;
+            padding-bottom: 5px;
+            margin-left: 2px;
+
+            width: 20%;
+            height: 20px;
+            border-radius: 50px;
+            border: #8C6900 6px solid;
+            background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+        }
+
+        .info-right {
+            float: right;
+            text-align: right;
+            padding-top: 7px;
+            padding-right: 5px;
+            padding-bottom: 2px;
+            width: 50%;
+            height: 20px;
+            border-radius: 120px;
+            border: #8C6900 6px solid;
+            background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+            color: #8C6900;
+            font-size: 13px;
+        }
+
+        #info-day {
+            width: 50%;
+            font-size: 13px;
+            color: #8C6900;
+        }
+        #info-week {
+            width: 50%;
+            margin-right: 5px;
+            font-size: 13px;
+            color: #8C6900;
+        }
+        /*厨师*/
+        .cook {
+            height: 220px;
+            border: red 1px solid;
+            border: white 6px solid;
+            background: #FFD24D;
+            border-radius: 20px;
+
+            position: fixed;
+            z-index: 98;
+            top: 60px;
+            left: 10px;
+            right: 10px;
+
+            padding: 10px;
+        }
+
+        .cook-1, .cook-2, .cook-3, .cook-4, .cook-5{
+            float: left;
+            width: 80px;
+            height: 80px;
+            border: red 1px solid;
+
+            margin: 10px;
+            padding-top: 0px;
+            text-align: center;
+            padding-bottom: 10px;
+        }
+
+        #cook-1-head, #cook-2-head,#cook-3-head, #cook-4-head, #cook-5-head{
+            margin-top: 0px;
+            margin-left: 2px;
+            margin-bottom: -15px;
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            border:white 5px solid;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #cook-1-head {
+            background:linear-gradient(90deg,#FF9122 50%,#D96D00 50%);
+        }
+        #cook-2-head {
+            background:linear-gradient(90deg,#AC91FF 50%,#7A4DFF 50%);
+        }
+        #cook-3-head {
+            background:linear-gradient(90deg,#FF9122 50%,#D96D00 50%);
+        }
+        #cook-4-head {
+            background:linear-gradient(90deg,#DDDDDD 50%,#AAAAAA 50%);
+        }
+        #cook-5-head {
+            background-color: #DDDDDD;
+        }
+
+        /*头像*/
+        .cook-head {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 5px;
+        }
+        #cook-add {
+            /*-webkit-filter:brightness(1000%);*/
+            margin-right: -59px;
+
+        }
+        #cook-add-button {
+            padding-bottom: 18px;
+            margin-right: 19px;
+        }
+        #cook-del-4 {
+            /*-webkit-filter:brightness(1000%);*/
+            margin-right: -28px;
+
+        }
+        #cook-del-button {
+           margin-right: -10px;
+            margin-top: -60px;
+        }
+
+
+
+
+
+        .cook-1-dish, .cook-2-dish, .cook-3-dish {
+            width: 74px;
+            height: 20px;
+            border-radius: 3px;
+            color: white;
+            border: white 4px solid;
+            font-size: 13px;
+            text-align: center;
+            padding-top: 3px;
+            padding-bottom: -1px;
+        }
+        .cook-1-dish {
+
+            background:linear-gradient(90deg,#D96D00 40%,#FF9122 60%);
+        }
+        .cook-2-dish {
+
+            background:linear-gradient(90deg,#A98EFA 100%,#7A4DFF 0%);
+        }
+        .cook-3-dish {
+            background:linear-gradient(90deg,#D96D00 70%,#FF9122 30%);
+        }
+
+        a {
+            text-decoration: none;
+            color: #CC9979;
+            font-weight: bolder;
+            font-size: 48px;
+        }
+
+
+
+
+
+
+
+
+
+
+    </style>
+</head>
+    <body>
+        <!--背景图片-->
+        <img src="statics/dose-juice-sTPy-oeA3h0-unsplash.jpg" style="position:absolute; width:100%; height:100%; left:0; top:0; z-index:-1;"/>
+        <!--顶部信息-->
+        <div class="top-info">
+            <div class="info-left">
+                <span id="info-week">
+                    W12
+                </span>
+                <span id="info-day">
+                    D5
+                </span>
+            </div>
+            <div class="info-right">
+                    1,948,343
+            </div>
+        </div>
+
+        <!--厨师栏-->
+        <div class="cook">
+            <div class="cook-1">
+                <div id="cook-1-head">
+                    <img class="cook-head" src="statics/iconfinder_Chef-2_379358.png">
+                </div>
+                <div class="cook-1-dish" value="45" max="100">
+                    UL炖LI
+                </div>
+            </div>
+            <div class="cook-2">
+                <div id="cook-2-head">
+                    <img class="cook-head" src="statics/iconfinder_Chef-2_379358.png">
+                </div>
+                <div class="cook-2-dish">
+                    鲜榨flex
+                </div>
+            </div>
+
+            <div class="cook-3">
+                <div id="cook-3-head">
+                    <img class="cook-head" src="statics/iconfinder_Chef-2_379358.png">
+                </div>
+                <div class="cook-3-dish">
+                    红烧HEAD
+                </div>
+            </div>
+
+            <div class="cook-4">
+                <div id="cook-4-head">
+                    <img class="cook-head" src="statics/iconfinder_Chef-2_379358.png" id="cook-del-4">
+                    <a href="javascript:void(0);" id="cook-del-button"><!--后续待补充-->
+                        ×
+                    </a>
+                </div>
+                <div id="cook-4-dish">
+
+                </div>
+            </div>
+
+            <div class="cook-5">
+                <div id="cook-5-head">
+                    <img class="cook-head" src="statics/eec5d77bb81fc97687039a454568af9.png" id="cook-add">
+                    <a href="javascript:void(0);" id="cook-add-button"><!--后续待补充-->
+                        +
+                    </a>
+                </div>
+                <div id="cook-5-dish">
+
+                </div>
+            </div>
+
+
+        </div>
+        <!--顾客栏-->
+        <div></div>
+        <!--等位栏-->
+        <div></div>
+
+    </body>
 </html>
