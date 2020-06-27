@@ -1,0 +1,446 @@
+/*这是一条华丽的分割线*/
+.top-info {
+    border: red 1px solid;
+    height: 50px;
+
+    position: fixed;
+    /*z-index: 99;*/
+    left: 10px;
+    right: 10px;
+    margin-bottom: 10px;
+
+    padding-top: 5px;
+}
+.info-left {
+    float: left;
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 23px;
+    padding-bottom: 5px;
+    margin-left: 2px;
+
+    width: 20%;
+    height: 20px;
+    border-radius: 50px;
+    border: #8C6900 6px solid;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+}
+
+.info-right {
+    float: right;
+    text-align: right;
+    padding-top: 7px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    width: 50%;
+    height: 20px;
+    border-radius: 120px;
+    border: #8C6900 6px solid;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+    color: #8C6900;
+    font-size: 13px;
+}
+
+#info-day {
+    width: 50%;
+    font-size: 13px;
+    color: #8C6900;
+}
+#info-week {
+    width: 50%;
+    margin-right: 5px;
+    font-size: 13px;
+    color: #8C6900;
+}
+
+/*厨师栏*/
+.cook {
+    height: 220px;
+    border: white 6px solid;
+    background: #FFD24D;
+    border-radius: 20px;
+
+    position: fixed;
+    z-index: 59;
+    top: 60px;
+    left: 10px;
+    right: 10px;
+
+    padding: 10px;
+}
+
+.cook-1, .cook-2, .cook-3, .cook-4, .cook-5{
+    float: left;
+    width: 80px;
+    height: 80px;
+    border: red 1px solid;
+
+    margin: 10px;
+    padding-top: 0px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#cook-1-head, #cook-2-head,#cook-3-head, #cook-4-head, #cook-5-head{
+    margin-top: 0px;
+    margin-left: 2px;
+    margin-bottom: -15px;
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    border:white 5px solid;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#cook-1-head {
+    background:linear-gradient(90deg,#FF9122 50%,#D96D00 50%);
+}
+#cook-2-head {
+    background:linear-gradient(90deg,#AC91FF 50%,#7A4DFF 50%);
+}
+#cook-3-head {
+    background:linear-gradient(90deg,#FF9122 50%,#D96D00 50%);
+}
+#cook-4-head {
+    background:linear-gradient(90deg,#DDDDDD 50%,#AAAAAA 50%);
+}
+#cook-5-head {
+    background-color: #DDDDDD;
+}
+
+/*头像*/
+.cook-head {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 5px;
+}
+#cook-add {
+    /*-webkit-filter:brightness(1000%);*/
+    margin-right: -59px;
+}
+#cook-add-button {
+    padding-bottom: 18px;
+    margin-right: 19px;
+}
+#cook-del-4 {
+    /*-webkit-filter:brightness(1000%);*/
+    margin-right: -28px;
+
+}
+#cook-del-button {
+    margin-right: -10px;
+    margin-top: -60px;
+}
+
+
+
+
+
+.cook-1-dish, .cook-2-dish, .cook-3-dish {
+    width: 74px;
+    height: 20px;
+    border-radius: 3px;
+    color: white;
+    border: white 4px solid;
+    font-size: 13px;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: -1px;
+}
+.cook-1-dish {
+
+    background:linear-gradient(90deg,#D96D00 40%,#FF9122 60%);
+}
+.cook-2-dish {
+
+    background:linear-gradient(90deg,#A98EFA 100%,#7A4DFF 0%);
+}
+.cook-3-dish {
+    background:linear-gradient(90deg,#D96D00 70%,#FF9122 30%);
+}
+
+a {
+    text-decoration: none;
+    color: #CC9979;
+    font-weight: bolder;
+    font-size: 48px;
+}
+
+
+/*顾客栏 1rem = 16px*/
+.client-area {
+    height: 15rem;
+    background: #FFA64D;
+    border: white 0.3rem solid;
+    position: fixed;
+    top: 20rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    border-radius: 1.2rem;
+
+    margin-bottom: -3rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.client-area li {
+    width: 43%;
+    height: 40%;
+    position: relative;
+    margin-top: 0.3rem;
+    margin-left: 0.7rem;
+
+    border: red 0.1rem solid;
+}
+
+.client-face {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+    margin-right: -1rem;
+    position: relative;
+
+    float: left;
+    border: white 0.25rem solid;
+    border-radius: 50%;
+}
+.client-face img {
+    width: 5rem;
+    height: 5rem;
+
+    z-index: 20;
+    position: absolute;
+    top: -0.4rem;
+    left: -0.30rem;
+}
+
+.dish-container {
+    margin-top: 0.7rem;
+    width: 44%;
+    height: 50%;
+
+    display: flex;
+    flex-wrap: wrap;/*拆行*/
+    justify-content: flex-start;
+}
+.order-dish {
+    width: 100%;
+    height: 1rem;
+    color: white;
+    border: white 0.15rem solid;
+    border-radius: 0.1rem;
+
+    z-index: 21;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    text-align: center;
+}
+
+/*顾客一*/
+#client-face-1 {
+    background:linear-gradient(90deg,#661A00 50%,#401000 50%);
+}
+#dish-container-1 {
+    /*默认值*/
+}
+#client1-dish-1, #client1-dish-2{
+    background-color: #535362;
+}
+
+
+/*顾客二*/
+#dish-container-2 {
+    height: 75%;
+}
+
+#client-face-2 {
+    background:linear-gradient(90deg,#80FF00 50%,#00B200 50%);
+}
+
+#client2-dish-1, #client2-dish-2, #client2-dish-3{
+    background-color: #00B200;
+}
+
+/*顾客三*/
+#client-face-3 {
+    background:linear-gradient(90deg,#FF9122 50%,#D96D00 50%);
+}
+#client3-dish-1{
+    background:linear-gradient(90deg,#D96D00 40%,#FF9122 60%);
+}
+
+/*顾客四*/
+#client-face-4 {
+    background:linear-gradient(90deg,#FF9122 50%,#D96D00 50%);
+}
+#client4-dish-1, #client4-dish-2{
+    background-color: #00B200;
+}
+#client4-dish-3 {
+    background: #535362;
+}
+
+#dish-container-4 {
+    height: 75%;
+}
+
+
+
+/*等位waiting*/
+.waiting {
+    height: 5rem;
+
+    position: fixed;
+    bottom: 0rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    padding-right: 0.5rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+    border: red 0.1rem solid;
+}
+
+.waiting li {
+    width: 3.9rem;
+    height: 100%;
+    position: relative;
+    margin-top: 0rem;
+
+    border: red 0.1rem solid;
+}
+
+.waiting-face {
+    margin-bottom: -0.4rem;
+    margin-right: 0rem;
+    z-index: 1;
+    width: 3.6rem;
+    height: 3.6rem;
+    position: relative;
+
+    border: white 0.2rem solid;
+    border-radius: 50%;
+    background:linear-gradient(90deg,#2693FF 50%,#006DD9 50%);
+}
+
+.waiting-face img {
+    width: 4.3rem;
+    height: 4.3rem;
+    position: absolute;
+
+    margin-left: -0.4rem;
+    margin-top: -0.4rem;
+}
+
+.waiting-info {
+    width: 3.7rem;
+    height: 1rem;
+    margin-bottom: 1rem;
+    z-index: 45;
+    font-size: 0.6rem;
+    color: white;
+    text-align: center;
+    line-height: 1rem;
+    position: relative;
+
+    border: white 0.1rem solid;
+    border-radius: 0.1rem;
+    background:linear-gradient(90deg,#2693FF 40%,#006DD9 60%);
+}
+
+#waiting-info-2 {
+    background:linear-gradient(90deg,#2693FF 100%,#006DD9 0%);
+}
+
+.waiting li {
+    margin-left: -1rem;
+}
+#waiting-li-1 {
+    z-index: 43;
+}
+#waiting-li-2 {
+    z-index: 42;
+}
+
+
+
+/*弹窗部分*/
+.background {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 70;
+
+    background-color: rgba(0,0,0,.6);
+}
+
+.popup {
+    position: fixed;
+    top: 12rem;
+    bottom: 12rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    z-index: 71;
+    padding: 0.6rem;
+
+    background-color: #FFD24D;
+    border: 0.5rem white solid;
+    border-radius: 1rem;
+}
+
+/*1.添加厨师*/
+#popup-add {
+    display: none;
+}
+
+h1 {
+    color: #8C6800;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    margin: 0.7rem;
+}
+
+.add-text {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.2rem;
+    font-size: large;
+    color: #8C6800;
+
+}
+
+.popup-btn-1 {
+    margin: 0.5rem;
+    height: 3rem;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+    width: 50%;
+    border-radius: 10rem;
+    color: #8C6800;
+    font-weight: bold;
+ }
+
+.popup-btn-2 {
+    margin: 0.5rem;
+    height: 3rem;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+    width: 35%;
+    border-radius: 10rem;
+    color: #8C6800;
+    font-weight: bold;
+}
+
+
+
+
+

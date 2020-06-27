@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" charset="UTF-8">
+    <title>Demo</title>
+    <link rel="stylesheet" type="text/css" href="reset2.css">
+    <link rel="stylesheet" type="text/css" href="asset2.css">
+
+</head>
+    <body>
+        <!--背景图片-->
+        <img src="statics/dose-juice-sTPy-oeA3h0-unsplash.jpg" style="position:absolute; width:100%; height:100%; left:0; top:0; z-index:-1;"/>
+        <!--顶部信息-->
+        <div class="top-info">
+            <div class="info-left">
+                <span id="info-week">
+                    W1
+                </span>
+                <span id="info-day">
+                    D1
+                </span>
+            </div>
+            <div class="info-right">
+                    100
+            </div>
+        </div>
+
+        <!--厨师栏-->
+        <ul class="cook">
+            <li>
+                <div class="cook-head" id="cook-head-1">
+                    <img class="cook-head-img" src="statics/iconfinder_Chef-2_379358.png">
+                </div>
+            </li>
+            <li>
+                <div class="cook-head" id="cook-head-add">
+                    <img class="cook-head-img" src="statics/eec5d77bb81fc97687039a454568af9.png">
+                    <a class="cook-head-symbol" onclick="showAdd()">
+                        +
+                    </a>
+                </div>
+            </li>
+
+        </ul>
+
+
+
+
+        <!--顾客栏-->
+        <ul class="client-area">
+            <li>
+               <div class="client-face" id="client-face-1">
+                   <!--<img src="statics/379446-512.png">-->
+               </div>
+                <div class="dish-container" id="dish-container-1">
+                    <!--<div class="order-dish" id="client1-dish-1">
+                        UL炖LI
+                    </div>
+                    <div class="order-dish" id="client1-dish-2">
+                        鲜榨flex
+                    </div>-->
+                </div>
+            </li>
+
+            <li>
+                <div class="client-face" id="client-face-2">
+                    <!--<img src="statics/379448-512.png">-->
+                </div>
+
+                <div class="dish-container" id="dish-container-2">
+                    <!--<div class="order-dish" id="client2-dish-1">
+                        UL炖LI
+                    </div>
+                    <div class="order-dish" id="client2-dish-2">
+                        UL炖LI
+                    </div>
+                    <div class="order-dish" id="client2-dish-3">
+                        UL炖LI
+                    </div>-->
+                </div>
+            </li>
+            <li>
+                <div class="client-face" id="client-face-3">
+                    <!--<img src="statics/iconfinder_Boss-3_379348.png">-->
+                </div>
+
+                <div class="dish-container" id="dish-container-3">
+                   <!-- <div class="order-dish" id="client3-dish-1">
+                        UL炖LI
+                    </div>-->
+                </div>
+            </li>
+            <li>
+                <div class="client-face" id="client-face-4">
+                   <!-- <img src="statics/iconfinder_Rasta_379441.png">-->
+                </div>
+                <div class="dish-container" id="dish-container-4">
+                    <!--<div class="order-dish" id="client4-dish-1">
+                        UL炖LI
+                    </div>
+                    <div class="order-dish" id="client4-dish-2">
+                        UL炖LI
+                    </div>
+                    <div class="order-dish" id="client4-dish-3">
+                        红烧HEAD
+                    </div>-->
+                </div>
+
+            </li>
+        </ul>
+
+
+        <!--等位栏-->
+        <ul class="waiting">
+           <!--<li id="waiting-li-1">
+                <div class="waiting-face" id="waiting-face-1">
+                    <img src="statics/iconfinder_Man-16_379485.png">
+                </div>
+               <div class="waiting-info" id="waiting-info-1">
+                   等位中
+               </div>
+           </li>-->
+            <li id="waiting-li-2">
+                <div class="waiting-face" id="waiting-face-2">
+                    <img src="statics/379446-512.png">
+                </div>
+                <div class="waiting-info" id="waiting-info-2">
+                    等位中
+                </div>
+            </li>
+        </ul>
+
+
+
+    <!--弹窗部分-->
+    <div class="background" id="background-id">
+        <!--新厨师-->
+        <div class="popup-add" id="popup-add">
+            <h1>招聘新厨师</h1>
+            <div class="add-text">
+                招聘一名新厨师可以帮助你更快地为顾客烹饪菜肴，
+                增加餐厅的收入。你最多可以拥有六名厨师。
+                但每个厨师每周需要你支付工资￥100<br>
+                请问你确认新招聘一名厨师吗？<br>
+            </div>
+            <button class="popup-btn-1" onclick="cookAdd()">是的，确认招聘</button>
+            <button class="popup-btn-2" onclick="addCancel()">先不了</button>
+        </div>
+
+        <!--顾客点菜-->
+        <ul class="popup-menu" id="popup-menu">
+            <li class="menu-head">
+                <div class="menu-face" id="menu-face">
+                    <!--face img-->
+                </div>
+                <div class="menu-head-text">
+                    Ta正在点菜，已点<span>18</span>元的菜
+                </div>
+            </li>
+            <li class="menu-text">
+                <form style="line-height: 140%">
+                    凉菜（二选一，可不点）<br>
+                    <input type="radio" name="coldDish">凉拌SAN&nbsp.................................&nbsp￥6<br>
+                    <input type="radio" name="coldDish">冷切DOM&nbsp...............................&nbsp￥4<br>
+                    主菜（五选一，必点）<br>
+                    <input type="radio" name="mainDish">UL炖LI&nbsp.....................................&nbsp￥12<br>
+                    <input type="radio" name="mainDish">红烧HEAD&nbsp..............................&nbsp￥15<br>
+                    <input type="radio" name="mainDish">酥炸ECharts&nbsp..........................&nbsp￥18<br>
+                    <input type="radio" name="mainDish">炙烤CSS&nbsp..................................&nbsp￥16<br>
+                    <input type="radio" name="mainDish">清蒸DIV&nbsp..................................&nbsp￥12<br>
+                    饮品（二选一，可不点）<br>
+                    <input type="radio" name="drinkDish">鲜榨flex&nbsp...................................&nbsp￥5<br>
+                    <input type="radio" name="drinkDish">小程序奶茶&nbsp.............................&nbsp￥6<br>
+
+                    <input type="submit" value="点好快上菜">
+                    <button class="menu-conceal">
+                        不吃了
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+
+    </body>
+   <script src="DemoController2.js"></script>
+</html>
