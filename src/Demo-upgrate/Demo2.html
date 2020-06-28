@@ -20,7 +20,7 @@
                     D1
                 </span>
             </div>
-            <div class="info-right">
+            <div class="info-right" id="info-right">
                     100
             </div>
         </div>
@@ -29,8 +29,12 @@
         <ul class="cook">
             <li>
                 <div class="cook-head" id="cook-head-1">
-                    <img class="cook-head-img" src="statics/iconfinder_Chef-2_379358.png">
+                    <img class="cook-head-img" src="statics/iconfinder_Chef-2_379358.png" id="cook-head-img-1">
                 </div>
+                <div class="cook-dish-container" id="cook-container-1">
+
+                </div>
+                <img class="cook-serve" id="cook-serve" src="statics/iconfinder_Food-Dome_379366.png">
             </li>
             <li>
                 <div class="cook-head" id="cook-head-add">
@@ -154,33 +158,75 @@
                     <!--face img-->
                 </div>
                 <div class="menu-head-text">
-                    Ta正在点菜，已点<span>18</span>元的菜
+                    &nbspTa正在点菜,已点<span id="dish-sum">0</span>元的菜
                 </div>
             </li>
             <li class="menu-text">
-                <form style="line-height: 140%">
+                <form style="line-height: 140%; color: #8C6700;" id="menu-result" method="get" name="menuResult" action="#" >
                     凉菜（二选一，可不点）<br>
-                    <input type="radio" name="coldDish">凉拌SAN&nbsp.................................&nbsp￥6<br>
-                    <input type="radio" name="coldDish">冷切DOM&nbsp...............................&nbsp￥4<br>
+                    <input type="radio" name="coldDish" value="凉拌SAN">凉拌SAN&nbsp.................................&nbsp￥6<br>
+                    <input type="radio" name="coldDish" value="冷切DOM">冷切DOM&nbsp...............................&nbsp￥4<br>
                     主菜（五选一，必点）<br>
-                    <input type="radio" name="mainDish">UL炖LI&nbsp.....................................&nbsp￥12<br>
-                    <input type="radio" name="mainDish">红烧HEAD&nbsp..............................&nbsp￥15<br>
-                    <input type="radio" name="mainDish">酥炸ECharts&nbsp..........................&nbsp￥18<br>
-                    <input type="radio" name="mainDish">炙烤CSS&nbsp..................................&nbsp￥16<br>
-                    <input type="radio" name="mainDish">清蒸DIV&nbsp..................................&nbsp￥12<br>
+                    <input type="radio" name="mainDish" value="UL炖LI">UL炖LI&nbsp.....................................&nbsp￥12<br>
+                    <input type="radio" name="mainDish" value="红烧HEAD">红烧HEAD&nbsp..............................&nbsp￥15<br>
+                    <input type="radio" name="mainDish" value="酥炸ECharts">酥炸ECharts&nbsp..........................&nbsp￥18<br>
+                    <input type="radio" name="mainDish" value="炙烤CSS">炙烤CSS&nbsp..................................&nbsp￥16<br>
+                    <input type="radio" name="mainDish" value="清蒸DIV">清蒸DIV&nbsp..................................&nbsp￥12<br>
                     饮品（二选一，可不点）<br>
-                    <input type="radio" name="drinkDish">鲜榨flex&nbsp...................................&nbsp￥5<br>
-                    <input type="radio" name="drinkDish">小程序奶茶&nbsp.............................&nbsp￥6<br>
-
-                    <input type="submit" value="点好快上菜">
-                    <button class="menu-conceal">
-                        不吃了
-                    </button>
+                    <input type="radio" name="drinkDish" value="鲜榨flex">鲜榨flex&nbsp...................................&nbsp￥5<br>
+                    <input type="radio" name="drinkDish" value="小程序奶茶">小程序奶茶&nbsp.............................&nbsp￥6<br>
                 </form>
             </li>
+            <button class="menu-submit" id="menu-submit" onclick="subs();">
+                点好了，快上菜
+            </button>
+            <button class="menu-reset" id="menu-reset" onclick="Reset();">
+                重置
+            </button>
+            <button class="menu-conceal" id="menu-conceal" onclick="notEat();">
+                不吃了
+            </button>
         </ul>
     </div>
 
+    <!--提示框-->
+    <div class="tips" id="tip-1">
+        Ta完成了点餐，等候用餐<br>
+        你可以疯狂点击厨师头像加速做菜。
+    </div>
+    <div class="tips" id="tip-2">
+        目前餐厅有空位，赶紧点击等位客人头像让客人入座点餐吧
+    </div>
+    <div class="tips" id="tip-3">
+        Ta正在品味美食。
+    </div>
+        <div class="tips" id="tip-4">
+            客户完成用餐，点击硬币收钱。
+        </div>
+        <div class="tips" id="tip-5">
+            谢谢老师，我只做到了这个部分。比心
+        </div>
+        <div class="loading" id="loading">
+        <h1>WebMOOC餐厅开业啦！</h1>
+        WebMOOC餐厅即将开业，请认真经营你的餐厅吧<br>
+        Tips：<br>
+        我只完成了一部分，请老师点菜时只点一份,
+        也没实现添加厨师<br>
+        <button class="load-btn" id="load-btn">开始经营吧</button>
+    </div>
+
+
+
+    <!--/*小餐盘按钮*/-->
+    <div class="dish-plate" id="dish-plate">
+        <img src="statics/iconfinder_Food-Dome_379366.png" class="dish-plate-img" id="dish-plate-img">
+    </div>
+    <!--钱-->
+    <img class="money" id="money" src="statics/iconfinder_Euro-Coin_379523.png">
+    <img class="money" id="like" src="statics/iconfinder_Instagram_UI-07_2315589.png">
+        <img class="money" id="like2" src="statics/iconfinder_Instagram_UI-07_2315589.png">
+
     </body>
+    <script src="jquery.js"></script>
    <script src="DemoController2.js"></script>
 </html>

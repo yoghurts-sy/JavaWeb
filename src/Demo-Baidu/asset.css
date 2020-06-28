@@ -1,6 +1,5 @@
 /*这是一条华丽的分割线*/
 .top-info {
-    border: red 1px solid;
     height: 50px;
 
     position: fixed;
@@ -73,7 +72,6 @@
     float: left;
     width: 80px;
     height: 80px;
-    border: red 1px solid;
 
     margin: 10px;
     padding-top: 0px;
@@ -88,7 +86,7 @@
     width: 68px;
     height: 68px;
     border-radius: 50%;
-    border:white 5px solid;
+    border:white 4px solid;
 
     display: flex;
     justify-content: center;
@@ -134,20 +132,17 @@
     margin-top: -60px;
 }
 
-
-
-
-
 .cook-1-dish, .cook-2-dish, .cook-3-dish {
-    width: 74px;
-    height: 20px;
+    width: 73px;
+    height: 17px;
     border-radius: 3px;
     color: white;
-    border: white 4px solid;
+    border: white 2px solid;
     font-size: 13px;
     text-align: center;
     padding-top: 3px;
     padding-bottom: -1px;
+    margin-left: 0.15rem;
 }
 .cook-1-dish {
 
@@ -194,7 +189,6 @@ a {
     margin-top: 0.3rem;
     margin-left: 0.7rem;
 
-    border: red 0.1rem solid;
 }
 
 .client-face {
@@ -305,7 +299,6 @@ a {
     flex-wrap: wrap;
     justify-content: flex-end;
 
-    border: red 0.1rem solid;
 }
 
 .waiting li {
@@ -313,8 +306,6 @@ a {
     height: 100%;
     position: relative;
     margin-top: 0rem;
-
-    border: red 0.1rem solid;
 }
 
 .waiting-face {
