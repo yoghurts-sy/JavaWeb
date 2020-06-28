@@ -402,3 +402,7 @@ This is my personal learning repository which for my progress in Java programmin
 					1. onsubmit = function(){  ... return false}
 					2. <form onclick="return checkform();">
 			2. onreset：重置按钮被点击
+
+## Bootstrap
+	1. 概念：一个前端开发框架
+		* 框架：一个半成品软件，开发人员在其上可以简化代码
