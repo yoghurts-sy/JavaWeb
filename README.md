@@ -406,6 +406,65 @@ This is my personal learning repository which for my progress in Java programmin
 ## Bootstrap
 	1. 概念：一个前端开发框架
 		* 框架：一个半成品软件，开发人员在其上可以简化代码
-		* test
-		* test
-		* * test
+		* 好处：
+			1. 定义了很多css样式和js插件，我们开发人员直接可以使用这些以达丰富的效果
+			2. 响应式布局
+				* 同一套页面可以兼容不同分辨率的设备
+				
+	2. 快速入门：
+	<!DOCTYPE html>
+	<html lang="zh-CN">
+	<head>
+	    <meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	    <title>Bootstrap 101 Template</title>
+	
+	    <!-- Bootstrap -->
+	    <link href="css/bootstrap.min.css" rel="stylesheet">
+	
+	</head>
+	<body>
+	<h1>你好，世界！</h1>
+	<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+	<script src="js/jquery.js"></script>
+	<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+	<script src="js/bootstrap.min.js"></script>
+	</body>
+	</html>
+
+
+## 响应式布局
+	* 同一套页面可以兼容不同分辨率的设备
+	* 实现：依赖于栅格系统：每一行平均分配成12个格子，可以指定元素占几个格子
+	* 步骤：
+		1. 定义容器：相当于之前的table
+			* 容器分类：
+				1. container：两边留白
+				2. container-fluid：每一种设备都是100%宽度
+		2. 定义行：相当于之前的tr  样式row
+		3. 定义元素：指定该元素在不同的设备上，所占的格子数目，样式：col-设备代码-格子数目
+			*设备代号：
+				1. xs：超小屏幕 手机(<768px):col-xs-12
+				2. sm：小屏幕 平板(>= 768px)
+				3. md：中等屏幕 桌面显示器(>=992px)
+				4. lg：大屏幕 大桌面显示器(>=1200px)
+			
+		* 注意：
+			1. 一行中如果格子超过了12，则超出部分自动换行
+			2. 栅格类属性可以向上兼容
+			3. 如果真实设备小于了设置栅格类属性的设备代号的最小值，会一个元素占满一行
+
+
+## Bootstrap的CSS样式和JS插件
+	全局CSS样式：
+		* 按钮：class="btn btn-default"
+		* 图片：class="img-responsive"：图片在任意尺寸都占100%（响应式）
+			* 形状可以修改
+		* 表格：
+			* table
+			* table-bordered
+			* table-hover
+		* 表单：
+			* 给表单项添加：class="form-control"
