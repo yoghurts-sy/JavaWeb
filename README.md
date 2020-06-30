@@ -647,3 +647,12 @@ This is my personal learning repository which for my progress in Java programmin
 					<Context docBase="D:\hello" />
 					* 虚拟目录：就是这个xml文件的名称
 					* 热部署，把文件类型改为xml_bak即可忽略
+
+			* 静态项目和动态项目：
+				* 目录结构
+					* Java动态项目的目录结构
+						-- 项目根目录
+							-- WEB-INF目录：
+								-- web.xml：web项目的核心配置文件
+								-- classes目录：放置字节码文件的目录
+								-- lib目录：放置依赖的jar包
