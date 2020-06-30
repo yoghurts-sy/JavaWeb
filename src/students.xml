@@ -1,0 +1,14 @@
+<?xml version='1.0' ?>
+
+<users>
+    <user id='1' number="xdu_001">
+        <name id="440">Tom</name>
+        <age>12</age>
+        <gender>male</gender>
+    </user>
+    <user id='2' number="xdu_002">
+        <name>yoghurt</name>
+        <age>14</age>
+        <gender>female</gender>
+    </user>
+</users>

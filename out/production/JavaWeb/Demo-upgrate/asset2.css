@@ -1,0 +1,555 @@
+/*这是一条华丽的分割线*/
+.top-info {
+    height: 50px;
+
+    position: fixed;
+    /*z-index: 99;*/
+    left: 10px;
+    right: 10px;
+    margin-bottom: 10px;
+
+    padding-top: 5px;
+}
+.info-left {
+    float: left;
+    text-align: right;
+    padding-top: 5px;
+    padding-right: 23px;
+    padding-bottom: 5px;
+    margin-left: 2px;
+
+    width: 20%;
+    height: 20px;
+    border-radius: 50px;
+    border: #8C6900 6px solid;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+}
+
+.info-right {
+    float: right;
+    text-align: right;
+    padding-top: 7px;
+    padding-right: 1rem;
+    padding-bottom: 2px;
+    width: 50%;
+    height: 20px;
+    line-height: 18px;
+    border-radius: 120px;
+    border: #8C6900 6px solid;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+    color: #8C6900;
+    font-size: 13px;
+}
+
+#info-day {
+    width: 50%;
+    font-size: 13px;
+    color: #8C6900;
+    line-height: 1.5rem;
+}
+#info-week {
+    width: 50%;
+    margin-right: 5px;
+    font-size: 13px;
+    color: #8C6900;
+    line-height: 1.5rem;
+}
+
+
+/*厨师栏*/
+.cook {
+    height: 13rem;
+    background: #FFD24D;
+    border-radius: 1.1rem;
+
+    border: white 0.3rem solid;
+    position: fixed;
+    top: 4rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    z-index: 1;
+    padding: 0.8rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.cook li {
+    margin-left: 0.7rem;
+    width: 27%;
+    height: 40%;
+    position: relative;
+
+}
+
+.cook-head {
+    height: 4.5rem;
+    width: 4.5rem;
+    margin-top: 0rem;
+    margin-left: 0.4rem;
+    position: relative;
+
+    border: white 0.2rem solid;
+    border-radius: 50%;
+
+    background:linear-gradient(90deg,#DDDDDD 50%,#AAAAAA 50%);
+}
+
+.cook-head-img {
+    width: 5rem;
+    height: 5rem;
+
+    z-index: 20;
+    position: absolute;
+    top: -0.4rem;
+    left: -0.30rem;
+}
+
+.cook-dish-container {
+    display: none;
+    height: 1.2rem;
+    width: 4.7rem;
+    position: absolute;
+    left: 0.25rem;
+    top:  4.2rem;
+
+    border: white 0.2rem solid;
+    border-radius: 0.2rem;
+    z-index: 20;
+    line-height: 1.2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.cook-serve {
+    display: none;
+    height: 4rem;
+    width: 4rem;
+    position: absolute;
+    z-index: 21;
+
+    top: 1rem;
+    left: -0.3rem;
+}
+
+.cook-head-symbol {
+    color: #CC9979;
+    font-weight: bolder;
+    font-size: 3rem;
+    z-index: 21;
+
+    position: absolute;
+    top: 0.63rem;
+    left: 1rem;
+    text-decoration: none;
+
+}
+
+
+
+/*顾客栏 1rem = 16px*/
+.client-area {
+    height: 15rem;
+    background: #FFA64D;
+    border: white 0.3rem solid;
+    position: fixed;
+    top: 20rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    border-radius: 1.2rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.client-area li {
+    width: 43%;
+    height: 40%;
+    position: relative;
+    margin-top: 0.3rem;
+    margin-left: 0.7rem;
+
+}
+
+.client-face {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-top: 0.3rem;
+    margin-left: 0.5rem;
+    margin-right: -1rem;
+    position: relative;
+
+    float: left;
+    border: white 0.25rem solid;
+    border-radius: 50%;
+
+    background:linear-gradient(90deg,#DDDDDD 50%,#AAAAAA 50%);
+}
+.client-face img {
+    width: 5rem;
+    height: 5rem;
+
+    z-index: 20;
+    position: absolute;
+    top: -0.4rem;
+    left: -0.30rem;
+}
+
+.dish-container {
+    margin-top: 0.7rem;
+    width: 44%;
+    height: 50%;
+
+    display: flex;
+    flex-wrap: wrap;/*拆行*/
+    justify-content: flex-start;
+}
+.order-dish {
+    width: 120%;
+    height: 1rem;
+    color: white;
+    border: white 0.15rem solid;
+    border-radius: 0.1rem;
+    margin-bottom: 0.2rem;
+
+    z-index: 21;
+    font-size: 0.7rem;
+    line-height: 1rem;
+    text-align: center;
+    background:linear-gradient(90deg,#B20000 0%,#FF2020 100%);
+}
+
+
+
+/*等位waiting*/
+.waiting {
+    height: 5rem;
+
+    position: fixed;
+    bottom: 0rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    padding-right: 0.5rem;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+
+}
+
+.waiting li {
+    width: 3.9rem;
+    height: 100%;
+    position: relative;
+    margin-top: 0rem;
+
+}
+
+.waiting-face {
+    margin-bottom: -0.4rem;
+    margin-right: 0rem;
+    z-index: 1;
+    width: 3.6rem;
+    height: 3.6rem;
+    position: relative;
+
+    border: white 0.2rem solid;
+    border-radius: 50%;
+    background:linear-gradient(90deg,#2693FF 50%,#006DD9 50%);
+}
+
+.waiting-face img {
+    width: 4.3rem;
+    height: 4.3rem;
+    position: absolute;
+
+    margin-left: -0.4rem;
+    margin-top: -0.4rem;
+}
+
+.waiting-info {
+    width: 3.7rem;
+    height: 1rem;
+    margin-bottom: 1rem;
+    z-index: 45;
+    font-size: 0.6rem;
+    color: white;
+    text-align: center;
+    line-height: 1rem;
+    position: relative;
+
+    border: white 0.1rem solid;
+    border-radius: 0.1rem;
+    background:linear-gradient(90deg,#2693FF 40%,#006DD9 60%);
+}
+
+#waiting-info-2 {
+    background:linear-gradient(90deg,#2693FF 100%,#006DD9 0%);
+}
+
+.waiting li {
+    margin-left: -1rem;
+}
+#waiting-li-1 {
+    z-index: 43;
+}
+#waiting-li-2 {
+    z-index: 42;
+}
+
+
+
+/*弹窗部分*/
+.background {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 70;
+
+    background-color: rgba(0,0,0,.6);
+}
+
+.popup-add {
+    position: fixed;
+    top: 12rem;
+    bottom: 12rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    z-index: 71;
+    padding: 0.6rem;
+
+    background-color: #FFD24D;
+    border: 0.5rem white solid;
+    border-radius: 1rem;
+}
+
+/*1.添加厨师*/
+#popup-add {
+    display: none;
+}
+
+h1 {
+    color: #8C6800;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+    margin: 0.7rem;
+}
+
+.add-text {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.2rem;
+    font-size: large;
+    color: #8C6800;
+
+}
+
+.popup-btn-1 {
+    margin: 0.5rem;
+    height: 3rem;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+    width: 50%;
+    border-radius: 10rem;
+    color: #8C6800;
+    font-weight: bold;
+ }
+
+.popup-btn-2 {
+    margin: 0.5rem;
+    height: 3rem;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+    width: 35%;
+    border-radius: 10rem;
+    color: #8C6800;
+    font-weight: bold;
+}
+
+/*点菜*/
+.popup-menu {
+    position: fixed;
+    top: 4rem;
+    bottom: 2.5rem;
+    left: 0.7rem;
+    right: 0.7rem;
+    z-index: 72;
+    padding: 0.6rem;
+    display: none;
+
+    background-color: #FFD24D;
+    border: 0.5rem white solid;
+    border-radius: 1rem;
+}
+.menu-head {
+    height: 1rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.menu-text {
+    height: 18rem;
+    margin-top: 1rem;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
+    padding: 0.5rem;
+    border: 0.1rem black solid;
+    background-color: white;
+}
+
+
+.menu-face {
+    position: fixed;
+    width: 4.2rem;
+    height: 4.2rem;
+    left: 2.8rem;
+    top: 2rem;
+    right: 14.2rem;
+    bottom: 32.5rem;
+
+    background:linear-gradient(90deg,#2693FF 50%,#006DD9 50%);
+    border-radius: 50%;
+    border: 0.2rem white solid;
+}
+.menu-face img {
+    height: 5rem;
+    width: 5rem;
+    position: fixed;
+    left: 2.6rem;
+    top: 1.7rem;
+}
+.menu-head-text {
+    text-align: right;
+    color: #513A00;
+    font-weight: bold;
+}
+
+.menu-submit {
+    width: 43%;
+    height: 4rem;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+    border-radius: 10rem;
+    border: 0.2rem #9D780B solid;
+    margin-top: 1rem;
+    color: #8C6700;
+    font-weight: bold;
+}
+.menu-reset {
+    width: 25%;
+    height: 4rem;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+    border-radius: 10rem;
+    border: 0.2rem #9D780B solid;
+    margin-top: 1rem;
+    color: #8C6700;
+    font-weight: bold;
+}
+.menu-conceal {
+    width: 27%;
+    height: 4rem;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+    border-radius: 10rem;
+    border: 0.2rem #9D780B solid;
+    margin-top: 1rem;
+    color: #8C6700;
+    font-weight: bold;
+}
+
+/*提示框*/
+.tips {
+    display: none;
+    width: 15.5rem;
+    height: 3.3rem;
+    position: fixed;
+    z-index: 30;
+    top: 15rem;
+    left: 3rem;
+    color: #916F08;
+    background-color: #D9E67D;
+    padding: 1rem;
+
+    border: white 0.3rem solid;
+    border-radius: 0.3rem;
+    font-size: large;
+    font-weight: bold;
+}
+
+.loading {
+    display: none;
+    position: fixed;
+    z-index: 71;
+    top: 13rem;
+    left: 0.7rem;
+    bottom: 12rem;
+    right: 0.7rem;
+    color: #916F08;
+    background-color: #FFD24D;
+    padding: 1rem;
+
+    border: white 0.4rem solid;
+    border-radius: 1.2rem;
+}
+.load-btn {
+    color: #AE8816;
+    font-weight: bold;
+    width: 8rem;
+    height: 3rem;
+    margin-top: 1rem;
+    margin-left: 5.6rem;
+    border-radius: 1.2rem;
+    border: #AE8816 0.2rem solid;
+    background:linear-gradient(180deg,#FFE699 50%,#FFD24D 50%);
+}
+
+#tip-2 {
+    background-color: #FFB399;
+    height: 3rem;
+}
+
+/*小餐盘*/
+.dish-plate {
+    display: none;
+    height: 1.1rem;
+    width: 1.1rem;
+    position: fixed;
+    top: 21.4rem;
+    left: 10.3rem;
+    z-index: 77;
+
+    background:linear-gradient(90deg,#FF2626 50%,#B20000 50%);
+    border-radius: 50%;
+    border: white 0.1rem solid;
+}
+.dish-plate-img {
+    display: none;
+    height: 1.4rem;
+    width: 1.4rem;
+    position: absolute;
+    z-index: 78;
+    left: -0.17rem;
+    top: -0.1rem;
+}
+
+.money {
+    display: none;
+    height: 3rem;
+    width: 3rem;
+    position: fixed;
+    top: 23rem;
+    left: 1.7rem;
+    z-index: 77;
+
+}
+
+#like2 {
+    top: 18rem;
+    left: 10rem;
+    z-index: 80;
+}
+
+

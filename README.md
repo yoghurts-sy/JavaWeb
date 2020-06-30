@@ -468,3 +468,182 @@ This is my personal learning repository which for my progress in Java programmin
 			* table-hover
 		* 表单：
 			* 给表单项添加：class="form-control"
+
+
+
+## XML
+	1. 概念：Extensible Markup Language 可扩展标记语言
+		* 可扩展：标签都是自定义的。
+
+	2. 功能：存储数据
+		1. 配置文件
+		2. 在网络中传输
+	
+	3. XML和html的区别
+		1. XML标签都是自定义的，html是预定义的
+		2. xml标签语法严格，html标签语法松散
+		3. xml是存储数据的，html是展示数据的
+
+	4. 语法：
+		* 基本语法：
+			1. xml文档的后缀名 .xml
+			2. xml第一行必须定义为文档声明
+			3. xml文档中有且仅有有一个根标签
+			4. 属性值必须用引号(单双都可以)引起来
+			5. 标签必须正确关闭
+			6. xml标签名称区分大小写
+	* 快速入门
+	<?xml version='1.0' ?>
+
+	<users>
+		<user id='1'>
+			<name>yoghurts</name>
+			<age>12</age>
+			<gender>male</gender>
+		</user>
+		<user id='2'>
+			<name>yoghurt</name>
+			<age>14</age>
+			<gender>female</gender>
+		</user>
+	</users>
+	
+	* 组成部分：
+		1. 文档声明
+			1. 格式：<?xml 属性列表 ?>
+			2. 属性列表：
+				* version：版本号，必须的属性1.0
+				* encoding：编码方式，告知解析引擎当前文档使用的字符集
+		2. 指令
+		3. 标签
+		4. 属性
+		5. 文本：
+			* CDATA区：在该区域中的数据会被原样显示
+				* 格式： <![CDATA[ 数据 ]]>
+		
+	* 约束：规定xml文档的书写规则
+		* 作为框架的使用者（程序员）
+			1. 能够在xml中引入约束文档
+			2. 能够简单的读懂约束文档
+
+		* 分类：
+			1. DTD：一种简单的约束技术
+			2. Schema：一种复杂的约束技术
+
+		
+		* DTD:
+			* 引入dtd文档到xml文档中
+				* 内部dtd：约束规则定义在xml文档中
+				* 外部dtd：将约束规则定义在外部的dtd文件中
+					* 本地：<!DOCTYPE 根标签名 SYSTEM "dtd文件的位置">
+					* 网络：<!DOCTYPE 根标签名 PUBLIC "dtd文件名字" "dtd文件的位置URL">
+			
+		* Schema：
+			* 引入：
+				1. 填写xml文档的根元素
+				2. 引入xsi前缀： xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				3. 引入xsd文件的命名空间： xsi:schemaLocation="http://itcast.cnxml student.xsd"
+				4. 为每一个xsd约束声明一个前缀，作为标识 xmlns="http://www.itcast.cn/xml"
+
+		5. 解析xml
+			1. DOM：将标记语言文档一次性加载进内存，在内存中形成一棵dom树
+				* 优点：操作方便，可以对文档进行CRUD的操作
+				* 缺点：占内存
+
+			2. SAX：逐行读取，基于事件驱动的
+				* 优点：不占内存
+				* 缺点：只能读取，不能增删改
+
+			* xml常见的解析器：
+				1. JAXP：sun公司提供，性能不佳
+				2. DOM4J:一款非常优秀的解析器
+				3. joup：一款html解析器，也可以用来解析xml
+				4. PULL：Android操作系统内置的解析器，sax方式的。
+
+
+## jsoup
+	1. 对象的使用：
+		1. Jsoup：工具类，可以解析html或xml文档，返回document
+			* parse：解析html文档或xml文档，返回document
+				* parse(File in, String charsetName)：解析xml或html文档
+				* parse(URL url, int timeoutMills)：通过网路路径获取指定的html或xml文档对象
+		2. Document：文档对象，代表内存中的dom树
+			* 获取Element对象
+				* getElementById(String id)
+				* getElementByTag(String TagName)：根据标签名获取
+				* getElementByAttribute(String key)：根据属性名称获取
+				* getElementByAttributeValue(String key, String value)：根据对应的属性名和属性值
+		3. Elements：元素Element对象的集合，可以当做ArrayList<Element>使用
+		4. Element：元素对象
+			1. 获取子元素对象(与上相同)
+			2. 获取属性值
+				* string attr(String key)：根据属性名称获取属性值
+			3. 获取文本内容
+				* String text():获取文本内容
+				* String html():获取innerHTML
+		5. Node：节点对象
+			* 是Document和Element的父类	
+
+		* 快速查询方式：
+			1. selector：选择器
+				* 使用的方法：Elements select(String cssQuery)
+					* 语法：参考selector类中定义的语法
+			2. XPath：XPath即为XML路径语言，它是一种用来确定XML文档中某部分位置的语言
+				* 使用Jsoup的XPath需要额外导入jar包
+				* 查询wcschool参考手册，使用语法完成查询
+
+
+## web服务器
+	* 服务器：安装了服务器软件的计算机
+	* 服务器软件：接受用户的请求，处理请求，做出响应
+	* web服务器软件：接收用户的请求，处理请求，做出响应
+		* 通过部署web项目，让用户通过浏览器来访问这些项目
+
+	* 常见的与Java相关的web服务器软件：
+		* webLogic：Oracle公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费。
+		* webSphere：IBM公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费。
+		* JBOSS：JBOSS公司，大型的JavaEE服务器，支持所有的JavaEE规范，收费。
+		* Tomcat：Apache基金组织，中小型JavaEE服务器，仅仅支持少量的JavaEE规范servlet/jsp，开源的，免费的。
+
+	* JavaEE：Java语言在企业级开发中使用的技术规范的总和，一共规定了13项大的规范。
+
+	* Tomcat：web服务器软件
+		1. 下载
+		2. 安装
+		3. 启动
+			* bin/startup.bat 双击运行该文件即可
+			* 访问：浏览器输入：http://localhost:8080 回车访问自己
+							* http://别人的ip:8080 访问别人
+
+			* 可能遇到的问题：
+				1. 黑窗口一闪而过：
+					* 原因：没有正确配置JAVA_HOME环境变量
+				2. 启动报错：
+					1. 暴力：找到占用的端口号，并且找到对应的进程，杀死该进程
+						* cmd输入：netstat -ano
+					2. 温柔：修改自身的端口号
+						* conf/server.xml
+						* 一般会将端口改成80，因为80是http协议的默认端口号
+							* 好处：在访问时不需要输入端口号
+		4. 关闭：
+			1. 正常关闭：
+				1. 法一：bin/shutdown.bat
+				2. 法二：ctrl+c
+			2. 强制关闭：点击启动窗口的X
+		5. 配置
+			* 部署项目的方式：
+				1. 直接将项目放到webapps目录下即可
+					* /文件名：项目的外包裹的那个文件夹，虚拟目录
+					* 简化部署：将项目打成一个war包，再将war包放置到webapps目录下
+						* war包会自动解压缩
+
+				2. 配置conf/sever.xml文件
+					在<Host>标签体中配置
+					<Context docBase="D:\hello" path:"/hehe" />
+					* docBase：项目所在文件夹
+					* path：虚拟目录
+
+				3. 在conf/Catalina/localhost文件夹里创建任意名称的xml文件，在文件中编写：
+					<Context docBase="D:\hello" />
+					* 虚拟目录：就是这个xml文件的名称
+					* 热部署，把文件类型改为xml_bak即可忽略

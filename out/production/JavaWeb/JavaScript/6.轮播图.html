@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <img src="../statics/7.jpg" width="100%" id="img">
+
+    <script>
+        let number = 7;
+        let imgId = document.getElementById("img");
+        function fun() {
+            number++;
+            if (number > 9) {
+                number = 7;
+            }
+            imgId.src = "../statics/" + number +".jpg";
+        }
+
+        /*定时器*/
+        setInterval(fun, 3000);
+    </script>
+
+</body>
+</html>
