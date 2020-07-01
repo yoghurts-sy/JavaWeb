@@ -717,3 +717,144 @@ This is my personal learning repository which for my progress in Java programmin
 			3. 复写方法
 			4. 在类上使用@WebServlet注解，进行配置
 				* @WebServlet("资源路径")
+
+
+	* IDEA和tomcat的相关配置文件
+		1. IDEA会为每一个tomcat部署的项目单独建议一份配置文件
+			* 查看控制台的log：Using CATALINA： "存放的位置"
+		2. 工作空间项目和tomcat部署的web项目
+			* tomcat真正访问的是"tomcat部署的web项目"，"tomcat部署的web项目"对应着"工作空间项目"的web目录下的所有资源
+			* WEB-INF目录下的资源不能被浏览器直接访问
+		3. 断点调试：使用"小虫子"启动debug
+	
+	* Servlet的体系结构
+		Servlet -- 接口
+			|
+		GenericServlet -- 抽象类
+			|
+		HttpServlet -- 抽象类
+
+		* GenericServlet：将Servlet接口中的其他方法做了默认空处理，只将service作为抽象
+			* 将来定义Servlet类时，可以继承GenericServlet，实现service方法即可
+
+		* HttpServlet：对http协议的一种封装，简化操作
+			1. 定义类继承HttpServlet
+			2. 复写doGet/doPost方法
+
+	* Servlet相关配置
+		1. urlpartten：Servlet访问路径
+			1. 一个Servlet可以定义多个访问路径：@WebServlet({"/d4", "/dd4", "/ddd4"})
+			2. 路径定义规制：
+				1. /XXX
+				2. /XXX/XXX：多层路径，目录结构
+				3. *.do
+
+
+
+## HTTP:
+	* 概念：Hyper Text Transfer Protocol 超文本传输协议
+		* 传输协议：定义了客户端和服务器通信时，发送数据的格式
+		* 特点：
+			1. 基于TCP/IP的高级协议
+			2. 默认端口号:80
+			3. 基于请求/响应模型的：一次请求对应一次响应
+			4. 无状态的：每次请求之间相互独立，不能交互数据
+
+		* 历史版本：
+			* 1.0：每一次请求响应都会建立新的连接
+			* 1.1：复用连接
+
+	* 请求消息数据格式
+		1. 请求行
+			请求方式 请求url 请求协议/版本号
+			POST /login.html HTTP/1.1
+		
+			* 请求方式：
+				* HTTP协议有7种请求方式，常用的两种：
+					* GET：
+						1. 请求参数在请求行中，在url后
+						2. 请求的url长度有限制
+						3. 不太安全
+					
+					* POST：
+						1. 请求参数在请求体中
+						2. 请求的url长度没有限制
+						3. 相对安全
+
+		2. 请求头
+			请求头名称: 请求头值
+			* 常见的请求头：
+				1. User-Agent：浏览器告诉服务器，我访问你使用的浏览器版本
+				2. Referer：告诉服务器，当前请求从哪里来？
+					* 作用：1.防盗链 2.统计工作
+		3. 请求空行
+			空行，用来分割POST请求的请求头和请求体的。
+		4. 请求体(正文)
+			* 封装POST请求消息的请求参数的
+
+
+## Request：
+	1. request对象和response对象的原理
+		1. request和response对象是由服务器创建的，我们来使用它们
+		2. request对象是来获取请求消息，response对象是来设置请求消息的
+
+	2. request对象继承体系结构：
+		ServletRequest     --接口
+			|  继承
+		HttpServletRequest --接口
+			|  实现
+		org.apache.catalina.connector.RequestFacade类(tomcat)
+	3. request：功能
+		1. 获取请求消息数据
+			1. 获取请求行数据
+				* GET /day14/demo1?name=zhangsan HTTP/1.1
+				* 方法：
+					1. 获取请求方式：GET
+						* String getMethod()
+					2. (*)获取虚拟目录： /day14
+						* String getContextPath()
+					3. 获取Servlet路径： /demo1
+						* String getServletPath()
+					4. 获取get方式请求参数：name=zhangsan
+						* String getQueryString()
+					5. (*)获取请求URI：/day14/demo1
+						* String getRequestURI():   /day14/demo1
+						* StringBuffer getRequestURL() : http://localhost/day14/demo1
+
+						* URL：统一资源定位符：http://localhost/day14/demo1
+						* URI：统一资源标识符：/day14/demo1 范围更大
+
+					6. 获取协议及版本： HTTP/1.1
+						* String getProtocol()
+
+					7. 获取客户机的IP地址：
+						* String getRemoteAddr()
+
+
+			2. 获取请求头数据
+				* 方法：
+					* (*)String getHeader(String name)：通过请求头的名称获取请求头的值
+					* Enumeration<String> getHeaderNames()：获取所有的请求头名称
+
+			3. 获取请求体的数据：
+				* 请求体：只有POST请求方式才有请求体，在请求体中封装了POST请求的请求参数
+				* 步骤：
+					1. 获取流对象：
+						* BufferedReader getReader()：获取字符输入流，只能操作字符数据
+						* ServletInputStream getInputStream()：获取字节输入流，可以操作所有类型数据
+							* 在文件上传知识点后再讲解
+
+					2. 再从流对象拿数据
+
+		2. 其他功能：
+			1. 获取请求参数通用方式
+				1. String getParameter(String name)：根据参数名称获取参数值
+				2. String[] getParameterValues(String name)：根据参数名称获取参数值的数组
+				3. Enumeration<String> getParameterNames()：获取所有请求的参数名称
+				4. Map<String, String[]> getParameterMap()：获取所有参数的map集合
+			2. 请求转发：
+			3. 共享数据
+			4. 获取ServletContext
+
+		
+					   
