@@ -855,6 +855,18 @@ This is my personal learning repository which for my progress in Java programmin
 			2. 请求转发：
 			3. 共享数据
 			4. 获取ServletContext
+				* getServletContext()
+
+
+## Demo：用户登录
+	* 用户登录案例需求：
+		1. 编写login.html登录页面
+		2. 使用Druid数据库连接池技术，操作mysql数据库
+		3. 使用jdbcTemplate技术封装jdbc
+		4. 登录成功跳转到SucceessServlet展示：登录成功！用户名，欢迎您
+		5. 登录失败后跳转到FailServlet展示：登录失败，用户名或密码错误。
+
+
 
 		
 					   
