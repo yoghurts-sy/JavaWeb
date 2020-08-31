@@ -1147,6 +1147,54 @@ This is my personal learning repository which for my progress in Java programmin
 					* response.getWriter()数据输出永远在out.write()之前。
 
 
+## Session：主菜
+	1. 概念：服务器端会话技术，在一次会话的多次请求间共享数据，将数据保存在服务器的对象中
+	2. 快速入门：
+		1. 获取HttpSession对象：
+			* request.getSession();
+
+		2. 使用HttpSession对象：
+
+	3. 原理：
+		* Session的实现是依赖于Cookie的，通过同一个JSESSIONID来确定同一个对象。
+
+	4. 细节：
+		1. 当客户端关闭后，服务器不关闭，两次获取的session对象是否为同一个》
+			* 不是同一个。
+			* 如果需要相同则：
+				* HttpSession session = request.getSession();
+			      Cookie c = new Cookie("JSESSIONID", session.getId());
+			      c.setMaxAge(60 * 60);
+			      response.addCookie(c);
+
+		2. 客户端不关闭，服务器关闭，两次获取的Session对象是同一个吗？
+			* 不是，但是要确保数据不丢失。
+				* session钝化：
+					* 在服务器正常关闭后，将session对象系列化到硬盘上
+
+				* session的活化：
+					* 在服务器启动后，将session文件转化为内存中的session对象即可。
+
+		3. session什么时候被销毁？
+			1. 服务器关闭
+			2. session对象调用invalidate()
+			3. session默认失效时间30分钟
+				* 可以修改
+
+
+	5. session特点
+		1. session用于存储一次会话的多次请求，存在服务器端
+		2. session可以存储任意类型，任意大小的数据
+
+
+		* session和cookie的区别：
+			1. session存储数据在服务器端，cookie客户端
+			2. session没有数据大小限制，cookie有
+			3. session数据安全，cookie相对不安全
+
+P194
+ 
+
 
 
 
