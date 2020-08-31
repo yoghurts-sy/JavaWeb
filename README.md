@@ -867,6 +867,290 @@ This is my personal learning repository which for my progress in Java programmin
 		5. 登录失败后跳转到FailServlet展示：登录失败，用户名或密码错误。
 
 
+	* 开发步骤
+		1. 创建项目，导入html页面，配置文件，导入jar包
+		2. 创建数据库环境
+		3. 创建User的JavaBean
+		4. 创建dao，提供login方法
+		5. 编写servlet模块
+
+
+## JavaBean
+	1. 要求：
+		1. 类必须被public修饰
+		2. 必须提供空参的构造器
+		3. 成员变量必须使用private修饰
+		4. 提供公共的setter和getter方法
+	
+	2. 功能：封装数据
+
+
+
+## Http协议：
+	1. 请求消息：客户端发送给服务器的数据
+		* 数据格式：
+			1. 请求行
+			2. 请求头
+			3. 请求空行
+			4. 请求体
+
+	2. 响应消息：
+		* 数据格式:
+			1. 响应行
+				1. 组成：协议/版本 响应状态码 状态码描述
+				2. 响应状态码：服务器告诉客户端浏览器本次请求和响应的一个状态
+					1. 状态码都是3位数字
+					2. 分类：
+						1. 1xx：服务器接收客户端信息，但没有完成，等待一段时间后，发送1xx状态码
+						2. 2xx：成功。代表：200
+						3. 3xx：重定向。代表：302(重定向) 304(访问缓存)
+						4. 4xx：客户端错误
+							* 代表：
+								* 404(请求路径没有对应的资源)
+								* 405(请求方法没有对应的doXxx方法)
+						5. 5xx：服务器端错误。代表：500(服务器内部异常)
+
+
+			2. 响应头
+				1. 格式：头名称：值
+				2. 常见的响应头：
+					1. Content-Type：服务器告诉客户端本次响应体数据格式以及编码格式
+					2. Content-disposition：服务器告诉客户端以什么格式打开响应体数据。
+						* 值：
+							* in-line：默认值，在当前的页面打开
+							* attachment;filename=xxx：以附件形式打开响应体，文件下载。
+			3. 响应空行
+			4. 响应体：即传输的数据
+
+
+
+## Response对象
+	* 对象：设置响应消息
+		1. 设置响应行
+			1. 格式：HTTP/1.1 200 ok
+			2. 设置状态码：setStatus(int sc)
+			
+		2. 设置响应头：setHeader(String name, String value)
+
+		3. 设置响应体：
+			* 使用步骤：
+				1. 获取输出流：
+					* 字符输出流：PrintWriter getWriter()
+
+
+					* 字节输出流：ServletOutputStream getOutputStream()
+
+				2. 使用输出流，将数据输出到客户端浏览器。
+
+
+	* Demo：
+		1. 完成重定向
+			* 重定向：资源跳转。
+				* response.sendRedirect("/day15_response_war_exploded/demo02response");
+				* 记得带上前面那个虚拟目录
+
+			* 重定向的特点：redirect
+				1. 地址栏发生变化
+				2. 重定向可以访问其他站点(服务器)的资源
+				3. 重定向是两次请求，不能使用request对象来共享数据。
+
+			* 转发的特点：forward
+				1. 转发地址栏路径不变
+				2. 转发只能访问当前的服务器下的资源
+				3. 转发只是一次请求，可以使用request对象来共享数据
+
+			* 面试题：forward & redirect的区别
+
+			* 路径的写法：
+				1. 相对路径：通过相对路径不可以确定唯一的资源
+					* 如：./index.html
+					* 规则：
+						* 找到当前的资源与目标资源直接的相对位置关系。
+							* ./:当前目录
+							* ../:上一级目录
+
+
+				2. 绝对路径：通过绝对目录可以找到唯一的资源
+					* 以/开头
+
+					* 规则：判断定义的路径是给谁用的》
+						* 给客户端浏览器使用：需要加虚拟目录
+							* 建议使用虚拟目录动态获取：request.getContextPath()
+						
+						* 给服务器使用：不需要加虚拟目录
+							* 转发
+
+
+		2. 服务器输出字符数据到浏览器
+			* 步骤：
+				1. 获取字符输出流
+				2. 输出数据
+
+			* 注意：
+				* 乱码问题：
+					1. PrintWriter pw = response.getWriter();获取的流默认编码是ISO-8859-1
+					* 处理方法：
+						* 在获取流之前设置：
+							* response.setContentType("text/html;charset=utf-8");
+
+		3. 服务器输出字节数据到浏览器
+			* 步骤：
+				1. 获取字节输出流
+				2. 输出数据
+
+		4. 验证码
+			1. 本质：图片
+			2. 目的：防止恶意表单注册
+
+
+
+## ServletContext对象
+	1. 概念：代表整个web应用，可以和程序的容器来通信
+	2. 获取：
+		1. 通过request对象获取
+			request.getServletContext();
+		2. 通过HttpServlet获取
+			this.getServletContext();
+
+
+	3. 功能：
+		1. 获取MIME类型：
+			* MIME类型：在互联网通信过程中定义的一种文件数据类型
+				* 格式：大类型/小类型 如：text/html  img/jpeg
+
+			* 获取：
+				String getMimeType(String file)
+		2. 域对象：共享数据
+			1. setAttribute(String name, object value)
+			2. getAttribute(String name)
+			3. removeAttribute(String name)
+
+			* ServletContext对象范围：所有用户所有请求的数据
+		3. 获取文件的真实路径(服务器)
+			ServletContext context = this.getServletContext();
+	        String webText = context.getRealPath("/webText.txt");//web目录下
+	        System.out.println(webText);
+	
+	        String WEBText = context.getRealPath("/WEB-INF/WEBText.txt");//WEB-INF目录下
+	        System.out.println(WEBText);
+	
+	        String srcText = context.getRealPath("/WEB-INF/classes/srcText.txt");
+	        System.out.println(srcText);
+
+
+## Demo：文件下载
+	* 需求：
+		1. 页面显示超链接
+		2. 点击超链接后弹出下载提示框
+		3. 完成图片文件下载
+
+
+	* 步骤：
+		1. 定义页面，编辑超链接href属性，指向Servlet，传递资源名称filename
+		2. 定义Servlet
+			1. 获取文件名称
+			2. 使用字节输入流加载文件进内存
+			3. 指定response的响应头：content-disposition:attachment;filename=xxx
+			4. 将数据写出到response输出流
+
+
+
+## 会话技术
+	1. 会话：一次会话中包含多次请求和响应
+		* 一次会话：浏览器第一次给服务器资源发送请求，会话建立，直到有一方断开为止
+	2. 功能：在一次会话的范围内的多次请求间共享数据
+	3. 方式：
+		1. 客户端会话技术：Cookie
+		2. 服务器端会话技术：Session
+
+
+## Cookie
+	1. 概念：客户端会话技术，将数据保存到客户端
+
+	2. 快速入门：
+		1. 创建Cookie对象，绑定数据
+		2. 发送Cookie对象
+		3. 获取Cookie，拿到数据
+
+	3. 实现原理：
+		* 基于响应头set-cookie和请求头cookie实现
+
+
+	4. cookie细节
+		1. 一次可不可以发送多个cookie？
+			* 可以
+			
+		2. cookie在浏览器中保存时间多长？
+			1. 默认情况下，当浏览器关闭后，cookie对象会被销毁
+			2. 持久化存储：
+				* setMaxAge(int seconds)
+					1. 正数：将cookie对象持久化写入硬盘文件，存储时间为该正数。
+					2. 负数：默认值
+					3. 零：删除cookie信息。
+
+		3. cookie能不能存中文？
+			* 可以，在value中存储(tomcat8之后才支持)
+			* 但是特殊字符还是不支持，建议使用URL编码，在使用URL解析
+		4. cookie共享问题？
+			1. 假设在一个tomcat服务器中，部署了多个web项目，那么在这些web项目中cookie能不能共享？
+				* 默认情况下不能共享
+
+			 	* setPath(String path)：设置cookie的获取范围，默认情况下，设置当前的虚拟目录。
+				 	* 将path设置为"/"
+
+			2. 不同的tomcat服务器间cookie共享问题？
+				* setDomain(String path):如果设置一级域名相同，则多个服务器之间cookie可以共享。
+
+		5. cookie的特点和作用
+			1. cookie存储数据在客户端浏览器
+			2. 浏览器对于单个cookie的大小有限制(4kb)以及对同一个域名下的总的cookie数量也有限制(20个)
+
+			* 作用：
+				1. cookie一般用于存储少量不太敏感的数据
+				2. 在不登录的情况下，完成服务器对客户端的身份识别。
+
+		6. Demo记住上一次访问的时间
+			1. 需求：
+				1. 访问一个Servlet，如果第一次访问，则提示：您好，欢迎您首次访问。
+				2. 如果不是第一次访问，则提示：欢迎回来，您上次访问时间为：XXX
+
+			2. 分析：
+				1. 采用cookie来完成
+				2. 在服务器中的Servlet判断是否一个名为lastTime的cookie
+					1. 有：不是第一次访问
+					2. 没有：是第一次访问
+
+
+## jsp:入门
+	1. 概念：
+		* Java Server Pages：Java服务器端页面
+			* 可以理解为：一个特殊的页面，其中既可以指定html标签，又可以定义Java代码
+			* 用于简化书写。
+
+	2. 原理：
+		* 本质就是一个Servlet
+				
+
+	3. JSP的脚本：jsp定义Java代码的方式
+		1. <%  代码  %>：定义的Java代码，在service方法中，service方法中可以定义什么，该脚本中就可以定义什么。
+		2. <%! 代码  %>：定义的Java代码，在jsp转换后的Java类的成员位置。
+		3. <%= 代码  %>：定义的Java代码，会输出到页面上。
+
+	4. jsp内置对象
+		* 在jsp页面中不需要获取和创建，可以直接使用的对象
+		* jsp中一共有9个内置对象
+			* request
+			* response
+			* out：字符输出流对象，可以将数据输出到页面上，和response.getWriter()类似
+				* response.getWriter()和out.write()的区别
+					* 在tomcat服务器真正给客户端做出响应之前，会找response缓冲区数据，再找out缓冲区数据
+					* response.getWriter()数据输出永远在out.write()之前。
+
+
+
+
+
+
 
 		
 					   
